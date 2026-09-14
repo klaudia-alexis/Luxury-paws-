@@ -20,11 +20,12 @@ app.use(express.json());
 app.use('/api/create-deposit-order', depositRouter);
 app.use('/api/order-status', statusRouter);
 
-app.get('/health', (req, res) => res.json({ ok: true, env: process.env.REVOLUT_ENV || 'sandbox' }));
+app.get('/health', (req, res) => res.json({ ok: true, env: process.env.SQUARE_ENV || 'sandbox' }));
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Luxury Paws backend listening on port ${PORT}`);
+  
   console.log(`Revolut env: ${process.env.REVOLUT_ENV || 'sandbox (default)'}`);
   console.log(`Square env: ${process.env.SQUARE_ENV || 'sandbox (default)'}`);
 });
